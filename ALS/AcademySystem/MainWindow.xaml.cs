@@ -10,7 +10,6 @@ namespace AcademySystem
         public MainWindow()
         {
             InitializeComponent();
-            int a = 5;
         }
     }
 }
