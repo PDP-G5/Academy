@@ -1,138 +1,57 @@
-﻿<Window x:Class="AcademySystem.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AcademySystem"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" AllowsTransparency="True" Background="Beige" WindowStyle="None">
-    <Window.Resources>
-        <Style x:Key="FocusVisual">
-            <Setter Property="Control.Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
-        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
-        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="1"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border CornerRadius="15"  x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-
-
+<Window x:Class="AcademySystem.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" Style="{StaticResource MaterialDesignWindow}" xmlns:local="clr-namespace:AcademySystem" mc:Ignorable="d" Title="MIR Academy" Height="450" Width="800" WindowState="Maximized">
     <Grid>
-
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3.5*" />
+            <ColumnDefinition Width="0.65*" />
+            <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <StackPanel Grid.Column="1"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Margin="0,0,50,0">
-
-            <StackPanel Orientation="Horizontal">
-
-                <Button Content="Akademiya haqida"
-                        Margin="0,0,5,0"
-                        Background="BurlyWood"
-                        Height="65"
-                        Width="130"/>
-                <Button Content="Konsultatsiya olish"
-                        Margin="0,0,5,0"
-                        Background="BurlyWood"
-                        Height="65"
-                        Width="130"/>
-                <Button Content="Talab va takliflar"
-                        Margin="0,0,5,0"
-                        Background="BurlyWood"
-                        Height="65"
-                        Width="130" />
-                <Button Content="Bizning hamkorlarimiz"
-                        Background="BurlyWood"
-                        Height="65"
-                        Width="130" />
-            </StackPanel>
+        <StackPanel Grid.Column="0">
+            <materialDesign:Card HorizontalAlignment="Left" Height="433">
+                <TabControl materialDesign:ColorZoneAssist.Mode="Standard" materialDesign:ElevationAssist.Elevation="Dp0" Style="{StaticResource MaterialDesignNavigationRailTabControl}">
+                    <TabItem Width="100">
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto" Margin="0,20,0,0">
+                                <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Laptop" />
+                                <TextBlock HorizontalAlignment="Center" Text="Online courses" Height="30" Width="100" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem Width="110">
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto" Margin="0,25,0,0">
+                                <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Desk" />
+                                <TextBlock HorizontalAlignment="Center" Text="Offline courses" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                </TabControl>
+            </materialDesign:Card>
         </StackPanel>
 
-        <StackPanel Grid.Row="0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-
-            <StackPanel Orientation="Vertical">
-
-                <Button Content="Online Kurslar"
-                        Margin="0,30,5,0"
-                        Background="Coral"
-                        Height="100"
-                        Width="100"/>
-
+        <StackPanel Grid.Column="1">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,25,0,0">
+                <Button Content="About academy" Margin="0,0,5,0" />
+                <Button Content="Get consultation" Margin="0,0,5,0" />
+                <Button Content="Requests and offers" Margin="0,0,5,0" />
+                <Button Content="Our partners" Margin="0,0,5,0" />
             </StackPanel>
-
-        </StackPanel>
-
-        <StackPanel Grid.Row="1"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-            <StackPanel Orientation="Vertical">
-                <Button Content="Offline Kurslar"
-                        Margin="0,0,5,0"
+            <StackPanel Margin="15,25,45,0" Width="240" HorizontalAlignment="Left">
+                <ComboBox materialDesign:ComboBoxAssist.MaxLength="2"
+                          materialDesign:HintAssist.Hint="Search courses..."
+                          materialDesign:HintAssist.HintOpacity=".30"
+                          IsEditable="True">
+                    <ComboBoxItem Content="Apple" />
+                    <ComboBoxItem Content="Banana" />
+                    <ComboBoxItem Content="Pear" />
+                    <ComboBoxItem Content="Orange" />
+                </ComboBox>
+            </StackPanel>
+>>>>>>> Stashed changes
+=======
                         Background="Coral"
                         Height="100"
                         Width="100"/>
             </StackPanel>
+>>>>>>> master
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1"

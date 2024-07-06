@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +17,7 @@ namespace AcademySystem
     /// <summary>
     /// Логика взаимодействия для Online_kurs.xaml
     /// </summary>
+
     public partial class Online_kurs : Window
     {
         public Online_kurs()
