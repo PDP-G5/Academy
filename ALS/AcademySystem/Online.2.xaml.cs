@@ -2,9 +2,9 @@
 
 namespace AcademySystem
 {
-    public partial class MainWindow : Window
+    public partial class Online : Window
     {
-        public MainWindow()
+        public Online()
         {
             InitializeComponent();
         }

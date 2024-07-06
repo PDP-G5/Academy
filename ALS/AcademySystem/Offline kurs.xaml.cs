@@ -2,9 +2,9 @@
 
 namespace AcademySystem
 {
-    public partial class MainWindow : Window
+    public partial class Offline_kurs : Window
     {
-        public MainWindow()
+        public Offline_kurs()
         {
             InitializeComponent();
         }
